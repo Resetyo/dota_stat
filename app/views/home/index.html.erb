@@ -1,0 +1,20 @@
+Patch <%= @patch %>
+<%= form_tag get_stats_path, style: 'font-size: 24px;' do %>
+  <h2>Radiant</h2>
+  <% 5.times do |i| %>
+    <%= select_tag "radiant[#{i}]", options_for_select(@heroes),
+        required: true,
+        class: 'selectize' %>
+  <% end %>
+
+  <h2>Dire</h2>
+  <% 5.times do |i| %>
+    <%= select_tag "dire[#{i}]", options_for_select(@heroes),
+        required: true,
+        class: 'selectize' %>
+  <% end %>
+
+  <%= hidden_field_tag 'patch', @patch %>
+
+  <%= submit_tag %>
+<% end %>

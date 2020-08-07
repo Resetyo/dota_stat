@@ -1,0 +1,17 @@
+<h2>Radiant</h2>
+<ul>
+  <% @variant_1.sort_by{|f| f[:rate] }.reverse.each do |f| %>
+    <li><%= "#{f[:hero_name]} - #{f[:rate].round(3)} (#{f[:total]})" %></li>
+  <% end %>
+</ul>
+<% rate = @variant_1.map{|t| t[:rate]} %>
+<h3><%= (rate.sum/rate.size).round(3) %></h3>
+
+<h2>Dire</h2>
+<ul>
+  <% @variant_2.sort_by{|f| f[:rate] }.reverse.each do |f| %>
+    <li><%= "#{f[:hero_name]} - #{f[:rate].round(3)} (#{f[:total]})" %></li>
+  <% end %>
+</ul>
+<%- rate = @variant_2.map{|t| t[:rate]} %>
+<h3><%= (rate.sum/rate.size).round(3) %></h3>
